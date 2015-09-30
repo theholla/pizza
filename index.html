@@ -1,48 +1,134 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-    <script src="js/jquery-1.11.3.js"></script>
-    <script src="js/scripts.js"></script>
-    <title>Pizza Parlor</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div id="headline"><h2>Order Pizza! So tasty</h2>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Supreme_pizza.png/800px-Supreme_pizza.png">
-          </div>
-            <div class="initial-form">
-              <form id="new-login">
-                <div class="form-group">
-                  <label for="name">Your Name</label>
-                  <input type="text" class="form-control" id="name">
-                </div>
-                <div class="form-group">
-                  <label for="phone">Your Phone Number</label>
-                  <input type="text" class="form-control" id="phone">
-                </div>
-                <div class="form-group">
-                  <label for="income">Your income level (1 for low, 5 for high)</label>
-                  <input type="number" min="0" max="5" class="form-control" id="income">
-                </div>
-                <button type="submit" class="btn btn-primary">Go</button>
-            </form>
-          </div>
+<head>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+  <script src="js/jquery-1.11.3.js"></script>
+  <script src="js/scripts.js"></script>
+  <title>Pizza Parlor</title>
+</head>
+<body>
+  <div class="container">
+
+    <!-- First row -->
+    <div class="row">
+
+      <div class="col-md-12">
+        <div id="headline">
+          <h1 class="header">Order Pizza! So tasty</h1>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Supreme_pizza.png/800px-Supreme_pizza.png">
+          <h3 class="specialDealMessage">No money at all? Come by at 3p, 8pm, and 11pm for free unsold slices.</h3>
+        </div>
+
+        <!-- Give us your info form -->
+        <div class="initial-form pizza">
+          <form id="new-login">
+            <div class="form-group">
+              <label for="name">Your Name :</label>
+              <input type="text" id="name" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="phone">Your Phone Number :</label>
+              <input type="text" id="phone" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="income">Your income level (1 for low, 5 for high) :</label>
+              <input type="number" min="0" max="5" id="income" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-default">Go</button>
+          </form>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6">
-          <p id="order">
-          </p>
-        </div>
-          <div class="col-md-6" id="order-pizza">
-            <h2>Order a Pizza</h2>
-
-        </div>
     </div>
-  </body>
+
+    <!-- Second row -->
+    <div class="row">
+      <div class="col-md-6 pizza" id="welcome">
+        <p>
+        </p>
+      </div>
+
+      <!-- Order form for specialty pizza -->
+      <div class="col-md-6" id="order-pizza">
+
+        <h2>Make Your Own Pizza</h2>
+        <form id="new-pizza-order">
+
+          <!-- Sauces -->
+          <div class="form-group">
+            <div class="title"> Base sauce : </div>
+            <label class="radio-inline">
+              <input type="radio" name="sauce" id="marinara" value="1"> marinara
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="sauce" id="pesto" value="3"> pesto
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="sauce" id="herbs" value="2"> garlic oil and herbs
+            </label>
+          </div>
+
+          <!-- Cheeses -->
+          <div class="form-group">
+            <div class="title"> Cheese ($1.00 each) : </div>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="cheese" id="cheese" value="1"> extra cheese
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="feta" id="feta" value="1"> feta
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="mozzarella" id="mozzarella" value="1"> fresh mozzarella
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="cashew" id="cashew" value="1"> cashew
+            </label>
+          </div>
+
+          <!-- Meats -->
+          <div class="form-group">
+            <div class="title"> Meats ($2.00 each) : </div>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="bacon" id="bacon" value="2"> bacun
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="chicken" id="chicken" value="2"> BBQ chick'n
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="pepperoni" id="pepperoni" value="2"> pepperonot
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="soyrizo" id="soyrizo" value="2"> soyrizo
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="pastor" id="pastor" value="2"> vegan pastor
+            </label>
+          </div>
+
+          <!-- Vegetables -->
+          <div class="form-group">
+            <div class="title"> Vegetables ($1.00 each) : </div>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="potatoes" id="potatoes" value="1"> potatoes
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="cilantro" id="cilantro" value="1"> cilantro
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="brussels" id="brussels" value="1"> brussel sprouts
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="jalapenos" id="jalapenos" value="1"> jalapenos
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="pineapple" id="pineapple" value="1"> pineapple
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-default">Go</button>
+        </form>
+      </div>
+    </div>
+</body>
 </html>

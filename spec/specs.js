@@ -1,28 +1,40 @@
-describe('BankAccount', function(){
-  it("creates a new bank account", function() {
-    var testBankAccount = new BankAccount("Diana", 999999);
-    expect(testBankAccount.name).to.equal("Diana");
-    expect(testBankAccount.deposit).to.equal(999999);
-  });
-
-  it("returns the correct name and deposit amount", function() {
-    expect(BankAccount("Perry", 999999)).to.contain("Perry");
+describe('Order', function(){
+  it("creates a new order", function() {
+    var testOrder = new Order("Jonathan", "(408) 333-222", "3", 0);
+    expect(testOrder.name).to.equal("Jonathan");
+    expect(testOrder.income).to.equal("3");
   });
 
 });
 
-describe('withdraw', function() {
-  it("it withdraws money correctly from an account", function() {
-    var testBankAccount = new BankAccount("Jake", 1000);
-    testBankAccount.withdraw(5);
-    expect(testBankAccount.deposit).to.equal(995);
+describe('adjustedBasePrice', function() {
+  it("gives a standard initial cost for high incomes", function() {
+    var testOrder = new Order("Prince William", "Europe", "5", 0);
+    testOrder.adjustedBasePrice();
+    expect(testOrder.cost).to.equal(10);
+  })
+
+  it("gives a low initial cost for low incomes", function() {
+    var testOrder = new Order("Pauper Paul", "Europe", "1", 0);
+    testOrder.adjustedBasePrice();
+    expect(testOrder.cost).to.equal(5);
+  })
+
+})
+
+describe('add', function() {
+  it("adds the price of a topping to the current total", function() {
+    var testOrder = new Order("Jake", "(503) 111-2222", "5", 0);
+    testOrder.add(10);
+    expect(testOrder.cost).to.equal(10);
   });
 });
 
-describe('adddeposit', function() {
-  it("it adds money correctly to an account", function() {
-    var testBankAccount = new BankAccount("Jake", 1000);
-    testBankAccount.addfunds(5);
-    expect(testBankAccount.deposit).to.equal(1005);
+describe('multiply', function() {
+  it("multiplies a total based on how many pizzas wil be purchased", function() {
+    var testOrder = new Order("Jake", "(503) 111-2222", "5", 0);
+    testOrder.add(10);
+    testOrder.multiply(5);
+    expect(testOrder.cost).to.equal(50);
   });
 });

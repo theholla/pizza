@@ -12,13 +12,20 @@ $(document).ready(function() {
     event.preventDefault();
     var inputtedName = $("input#name").val();
     var inputtedPhone = $("input#phone").val();
-    var inputtedIncome = $("input#income").val();
+    var inputtedIncome = parseInt($("input#income").val());
+    if (inputtedIncome < 1) {
+      $(".specialDealMessage").show();
+    } else {
       var newLogin = new Login(inputtedName, inputtedPhone, inputtedIncome);
       login = newLogin;
-      $("p#welcome").append("<br><br>You are " + login.name + "<br><br>" + "and your number is" + login.phone);
-      $("form#new-login").remove();
+      $("#welcome").append("Pizza Club Member: " + login.name + "<br><br>" + "Phone number: " + login.phone);
+      $("div.initial-form").remove();
       $("#headline").replaceWith("<h2>Welcome " + login.name + "</h2>");
+      $("#welcome").show();
       $("#order-pizza").show();
+    }
   });
+
+  $("form#")
 
 });

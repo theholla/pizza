@@ -17,8 +17,12 @@ Order.prototype.adjustedBasePrice = function() {
   return this.cost;
 }
 
-Order.prototype.add = function() {
+Order.prototype.add = function(price) {
   this.cost += price;
+}
+
+Order.prototype.multiply = function(price) {
+  this.cost = this.cost * price;
 }
 
 $(document).ready(function() {
@@ -36,19 +40,66 @@ $(document).ready(function() {
       var newOrder = new Order(inputtedName, inputtedPhone, inputtedIncome, cost);
       var cost = newOrder.adjustedBasePrice();
       order = newOrder;
-      $("#welcome").append("Pizza Club Member: " + order.name + "<br><br>" + "Phone number: " + order.phone + "<br><br>Base cost: $" + order.cost + ".00");
+      $("#welcome").html("Base cost: <h2>$" + order.cost + "</h2>");
       $("div.initial-form").remove();
-      $("#headline").replaceWith("<h2>Welcome " + order.name + "</h2>");
+      $("#headline").replaceWith("<h2>Order for " + order.name + "</h2>");
       $("#welcome").show();
       $("#order-pizza").show();
     }
   });
-  //
-  // $("form#new-pizza-order").submit(function(event) {
-  //   event.preventDefault();
-  //   var cost =
-  //
-  //   order.add(price);
-  // });
+
+  $("form#size").submit(function(event) {
+    event.preventDefault();
+    var sizeCost = parseInt($("input[name=size]:checked").val());
+    order.add(sizeCost);
+    $("#welcome").html("Price so far: <h2>$" + order.cost + "</h2>");
+    $("#size").remove();
+    $("#sauce").show();
+  })
+
+  $("form#sauce").submit(function(event) {
+    event.preventDefault();
+    var sauceCost = parseInt($("input[name=sauce]:checked").val());
+    order.add(sauceCost);
+    $("#welcome").html("Price so far: <h2>$" + order.cost + "</h2>");
+    $("#sauce").remove();
+    $("#cheese").show();
+  });
+
+  $("form#cheese").submit(function(event) {
+    event.preventDefault();
+    var cheeseCost = parseInt($("input[name=cheese]:checked").val());
+    order.add(cheeseCost);
+    $("#welcome").html("Price so far: <h2>$" + order.cost + "</h2>");
+    $("#cheese").remove();
+    $("#meat").show();
+  });
+
+  $("form#meat").submit(function(event) {
+    event.preventDefault();
+    var meatCost = parseInt($("input[name=meat]:checked").val());
+    order.add(meatCost);
+    $("#welcome").html("Price so far: <h2>$" + order.cost + "</h2>");
+    $("#meat").remove();
+    $("#vegetable").show();
+  });
+
+  $("form#vegetable").submit(function(event) {
+    event.preventDefault();
+    var vegCost = parseInt($("input[name=vegetables]:checked").val());
+    order.add(vegCost);
+    $("#welcome").html("Price so far: <h2>$" + order.cost + "</h2>");
+    $("#vegetable").remove();
+    $("#amount").show();
+  });
+
+  $("form#amount").submit(function(event) {
+    event.preventDefault();
+    var howMany = parseInt($("input#howmany").val());
+    order.multiply(howMany);
+    $("#welcome").html("Total price: <h2>$" + order.cost + "</h2>");
+    $("#amount").remove();
+    $("#thanks").show();
+  })
 
 });

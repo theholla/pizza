@@ -60,13 +60,13 @@
             <div class="form-group title">
               <div class="title"> What size?</div>
               <label class="radio">
-                <input type="radio" name="size" class="size" id="small" value="2"> small
+                <input type="radio" name="size" class="size" id="small" value="2" required> small
               </label>
               <label class="radio">
-                <input type="radio" name="size" class="size" id="medium" value="5"> medium
+                <input type="radio" name="size" class="size" id="medium" value="5" required> medium
               </label>
               <label class="radio">
-                <input type="radio" name="size" class="size" id="large" value="8"> large
+                <input type="radio" name="size" class="size" id="large" value="8" required> large
               </label>
             </div>
             <button type="submit" class="btn btn-default">Next: Sauce</button>
@@ -103,9 +103,6 @@
               <label class="radio">
                 <input type="radio" name="cheese" id="cashew" value="2"> cashew +$1
               </label>
-              <label class="radio">
-                <input type="radio" name="cheese" class="cheese" id="none" value="0"> none
-              </label>
             </div>
             <button type="submit" class="btn btn-default">Next: Meats</button>
           </form>
@@ -123,9 +120,6 @@
               <label class="radio">
                 <input type="radio" name="meat" id="pastor" value="3"> vegan pastor +$1
               </label>
-              <label class="radio">
-                <input type="radio" name="meat" class="meat" id="none" value="0"> none
-              </label>
             </div>
             <button type="submit" class="btn btn-default">Next: Vegetables</button>
           </form>
@@ -142,9 +136,6 @@
               </label>
               <label class="radio">
                 <input type="radio" name="vegetables" id="pineapple" value="1"> pineapple
-              </label>
-              <label class="radio">
-                <input type="radio" name="vegetables" class="vegetables" id="none" value="0"> none
               </label>
             </div>
             <button type="submit" class="btn btn-default">One more question...</button>

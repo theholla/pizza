@@ -18,7 +18,11 @@ Order.prototype.adjustedBasePrice = function() {
 }
 
 Order.prototype.add = function(price) {
-  this.cost += price;
+  if (price) {
+    this.cost += price;
+  } else {
+    this.cost += 0;
+  }
 }
 
 Order.prototype.multiply = function(price) {
